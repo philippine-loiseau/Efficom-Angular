@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+
+<body id="forest">
+  <div id="pokedex">
+    <div class="sensor">
+      <button class="play" (click)="playAudio()">
+      </button>
+    </div>
+    <div class="camera-display">
+      <img src="../../../assets/img/sprites/{{pokemon.id}}.png" />
+    </div>
+    <div class="divider"></div>
+    <div class="stats-display">
+      <h2>{{pokemon.name}}</h2>
+      <h3>Compétences</h3>
+      <ul *ngFor="let type of types">
+        <li>{{type}}</li>
+      </ul>
+      <h3>Caractéristiques</h3>
+      <p>
+        Taille : {{pokemon.height}} m
+      </p>
+      <p>
+        Poids : {{pokemon.weight}} kg
+      </p>
+      <h3>Description</h3>
+      <p>
+        {{pokemon.description}}
+      </p>
+    </div>
+    <div class="botom-actions">
+      <div id="actions">
+        <button class="a"></button>
+      </div>
+      <div id="cross">
+        <button class="cross-button up"></button>
+        <button class="cross-button right"></button>
+        <button class="cross-button down"></button>
+        <button class="cross-button left"></button>
+        <div class="cross-button center"> </div>
+      </div>
+    </div>
+    <div class="input-pad">N° 00{{pokemon.id}}</div>
+
+    <div class="bottom-modes">
+
+      <button class="level-button"></button>
+      <button class="level-button"></button>
+      <button class="level-button"></button>
+      <button class="level-button"></button>
+
+      <button class="pokedex-mode black-button" [routerLink]="['/pokemons']">Pokedex</button>
+
+    </div>
+
+  </div>
+</body>

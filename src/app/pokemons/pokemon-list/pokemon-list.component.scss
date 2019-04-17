@@ -1,0 +1,16 @@
+.result-scroll {
+    height: 100%;
+    overflow: scroll;
+  }
+  
+h2 {
+  color: white;
+  margin-left: 20px;
+}
+
+a {
+  color: white !important;
+  &:hover {
+    color: #1697F9 !important;
+  }
+}
