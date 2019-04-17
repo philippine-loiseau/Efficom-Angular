@@ -7,6 +7,6 @@
 (scrolledUp)="onUp()">
   <mat-list-item *ngFor="let pokemon of pokemons">
     <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png">
-    <a matLine [routerLink]="['/pokemon-details/'+ pokemon.id]">{{pokemon.id}}. {{ pokemon.name }}</a>
+    <a matLine (click)="emitId(pokemon.id)">{{pokemon.id}}. {{ pokemon.name }}</a>
   </mat-list-item>
 </mat-nav-list>

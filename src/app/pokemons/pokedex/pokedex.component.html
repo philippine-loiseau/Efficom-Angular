@@ -1,0 +1,4 @@
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav mode="side" opened><app-pokemon-list (idUpdated)="onIdUpdated($event)"></app-pokemon-list></mat-sidenav>
+  <mat-sidenav-content><app-pokemon-details [id]="id"></app-pokemon-details></mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/shared/models/pokemon.model';
 import { PokemonService } from 'src/app/shared/services/pokemon.service';
 import { Observable } from 'rxjs';
@@ -12,6 +12,8 @@ import { Observable } from 'rxjs';
 export class PokemonListComponent implements OnInit {
 
   public pokemons;
+  @Output() idUpdated: EventEmitter<number> = new EventEmitter();
+
 
   array = [];
   sum = 100;
@@ -24,6 +26,10 @@ export class PokemonListComponent implements OnInit {
     this.appendItems(0, this.sum);
   }
 
+  emitId(id:number): void {
+    console.log(id);
+    this.idUpdated.emit(id);
+  }
 
   ngOnInit() {
     this.getPokemons();

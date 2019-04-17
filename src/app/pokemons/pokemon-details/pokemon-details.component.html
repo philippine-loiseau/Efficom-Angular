@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
 
-<body id="forest">
+<section id="forest" *ngIf="pokemon">
   <div id="pokedex">
     <div class="sensor">
       <button class="play" (click)="playAudio()">
@@ -49,9 +49,9 @@
       <button class="level-button"></button>
       <button class="level-button"></button>
 
-      <button class="pokedex-mode black-button" [routerLink]="['/pokemons']">Pokedex</button>
+      <button class="pokedex-mode black-button" [routerLink]="['/pokedex']">Pokedex</button>
 
     </div>
 
   </div>
-</body>
+</section>

@@ -6,16 +6,20 @@ import { PokemonRoutingModule } from './pokemon-routing.module';
 import { RouterModule } from '@angular/router';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { PokedexComponent } from './pokedex/pokedex.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailsComponent],
+  declarations: [PokemonListComponent, PokemonDetailsComponent, PokedexComponent],
   imports: [
     CommonModule,
     MatListModule,
     RouterModule,
     PokemonRoutingModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    MatSidenavModule
   ],
   exports: [
     PokemonListComponent,
