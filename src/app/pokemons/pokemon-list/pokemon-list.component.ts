@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Pokemon } from 'src/app/shared/models/pokemon.model';
 import { PokemonService } from 'src/app/shared/services/pokemon.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { SearchService } from 'src/app/shared/services/search.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class PokemonListComponent implements OnInit {
 
   public pokemons;
   @Output() idUpdated: EventEmitter<number> = new EventEmitter();
-
+  results = [];
+  searchTerm$ = new Subject<string>();
 
   array = [];
   sum = 100;
@@ -22,12 +24,12 @@ export class PokemonListComponent implements OnInit {
   scrollUpDistance = 2;
   direction = '';
 
-  constructor(private pokemonService: PokemonService) { 
+  constructor(private pokemonService: PokemonService, private searchService: SearchService) { 
     this.appendItems(0, this.sum);
+    this.searchPokemon();
   }
 
   emitId(id:number): void {
-    console.log(id);
     this.idUpdated.emit(id);
   }
 
@@ -43,6 +45,12 @@ export class PokemonListComponent implements OnInit {
     })
   }
 
+  searchPokemon() {
+    this.searchService.search(this.searchTerm$)
+    .subscribe(results => {
+      this.results = results['data'];
+    });
+  }
 
   addItems(startIndex, endIndex, _method) {
     for (let i = 0; i < this.sum; ++i) {

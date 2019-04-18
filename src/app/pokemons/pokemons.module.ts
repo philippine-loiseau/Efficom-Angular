@@ -8,7 +8,12 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatIconModule, MatInputModule,
+  MatAutocompleteModule, MatChipsModule,
+  MatFormFieldModule
+} from '@angular/material';
 
 
 @NgModule({
@@ -19,7 +24,14 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     RouterModule,
     PokemonRoutingModule,
     InfiniteScrollModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatChipsModule,
+    MatFormFieldModule
   ],
   exports: [
     PokemonListComponent,

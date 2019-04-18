@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Pokemon } from '../models/pokemon.model';
 import { environment } from 'src/environments/environment';
 
@@ -15,12 +15,11 @@ export class PokemonService {
   constructor(private http: HttpClient) { }
 
   getPokemons(): Observable<Pokemon[]> {
-    return this.http.get<Pokemon[]>(this._url+'/pokemons?offset=0&limit=151');
+    return this.http.get<Pokemon[]>(this._url + '/pokemons?offset=0&limit=151');
   }
-  
 
-  getPokemonDetailsWithId(id:any): Observable<Pokemon> {
-    return this.http.get<Pokemon>(this._url+'/pokemons/'+id);
+  getPokemonDetailsWithId(id: any): Observable<Pokemon> {
+    return this.http.get<Pokemon>(this._url + '/pokemons/' + id);
   }
 
 }

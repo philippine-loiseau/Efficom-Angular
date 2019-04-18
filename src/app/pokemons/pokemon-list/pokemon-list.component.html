@@ -1,12 +1,29 @@
 <h2>POKEDEX</h2>
-<mat-nav-list class="result-scroll" infinite-scroll
-[infiniteScrollDistance]="scrollDistance"
-[infiniteScrollUpDistance]="scrollUpDistance"
-[infiniteScrollThrottle]="throttle"
-(scrolled)="onScrollDown()"
-(scrolledUp)="onUp()">
-  <mat-list-item *ngFor="let pokemon of pokemons">
-    <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png">
-    <a matLine (click)="emitId(pokemon.id)">{{pokemon.id}}. {{ pokemon.name }}</a>
-  </mat-list-item>
-</mat-nav-list>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input (keyup)="searchTerm$.next($event.target.value)" matInput placeholder="Rechercher un pokemon" value="">
+  </mat-form-field>
+</form>
+
+<div *ngIf="results">
+  <mat-nav-list class="result-scroll" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()"
+    (scrolledUp)="onUp()">
+    <mat-list-item *ngFor="let result of results">
+      <img matListAvatar src="../../../assets/img/sprites/{{result.id}}.png">
+      <a matLine (click)="emitId(result.id)">{{result.id}}. {{ result.name }}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
+
+<div *ngIf="results.length === 0">
+  <mat-nav-list class="result-scroll" infinite-scroll [infiniteScrollDistance]="scrollDistance"
+    [infiniteScrollUpDistance]="scrollUpDistance" [infiniteScrollThrottle]="throttle" (scrolled)="onScrollDown()"
+    (scrolledUp)="onUp()">
+    <mat-list-item *ngFor="let pokemon of pokemons">
+      <img matListAvatar src="../../../assets/img/sprites/{{pokemon.id}}.png">
+      <a matLine (click)="emitId(pokemon.id)">{{pokemon.id}}. {{ pokemon.name }}</a>
+    </mat-list-item>
+  </mat-nav-list>
+</div>
