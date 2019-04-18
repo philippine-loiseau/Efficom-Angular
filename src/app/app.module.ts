@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { PokemonsModule } from './pokemons/pokemons.module';
-import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PagesModule } from './pages/pages.module';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     PokemonsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PagesModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

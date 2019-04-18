@@ -1,0 +1,77 @@
+<section class="background">
+  <div class="login-container">
+    <div class="clearfix">
+      <div class="col-left">
+        <h4 class="text-uppercase">Vous n'avez pas encore de compte ?</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda perferendis quasi harum laboriosam
+          nesciunt
+          alias natus tempore saepe quisquam voluptas?</p>
+        <label class="btn btn-default btn-outline" for="register">S'inscrire</label>
+        <input class="hidden" type="radio" name="choose-login" checked="checked" id="register" />
+      </div>
+      <div class="col-right">
+        <h4 class="text-uppercase">Vous avez déjà un compte ?</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, qui!</p>
+        <label class="btn btn-default btn-outline" for="login">Se connecter</label>
+        <input class="hidden" type="radio" name="choose-login" id="login" />
+        <div class="background-float">
+          <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <h3 class="text-primary text-uppercase">Se connecter</h3>
+            <div class="form-group">
+              <label aria-label="Adresse mail" for="username">Adresse mail</label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && l.email.errors }" />
+              <div *ngIf="submitted && l.email.errors" class="invalid-feedback">
+                <div *ngIf="l.email.errors.required">Votre mail est obligatoire.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label aria-label="mot de passe" for="password">Mot de passe</label>
+              <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && l.password.errors }" />
+              <div *ngIf="submitted && l.password.errors" class="invalid-feedback">
+                <div *ngIf="l.password.errors.required">Le mot de passe est requis</div>
+              </div>
+            </div>
+            <div class="form-group center">
+              <button class="btn btn-primary" [disabled]="loading">Me connecter</button>
+              <img *ngIf="loading" class="pl-3"
+                src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            </div>
+          </form>
+          <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onRegisterSubmit()">
+            <h3 class="text-primary text-uppercase">S'inscrire</h3>
+            <div class="form-group">
+              <label aria-label="adresse mail">Adresse mail</label>
+              <input type="text" formControlName="email" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Votre adresse mail est obligatoire</div>
+                <div *ngIf="f.email.errors.email">L'email doit être une adresse valide</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label aria-label="mot de passe">Mot de passe</label>
+              <input type="password" formControlName="password" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Le mot de passe est obligatoire</div>
+                <div *ngIf="f.password.errors.minlength">Le mot de passe doit faire au moins 6 caractères</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label aria-label="confirmation du mot de passe">Confirmation du mot de passe</label>
+              <input type="password" formControlName="confirmPassword" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+              <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">La confirmation du mot de passe est obligatoire</div>
+                <div *ngIf="f.confirmPassword.errors.mustMatch">Le mot de passe n'est pas identique</div>
+              </div>
+            </div>
+            <button class="btn btn-primary" type="submit">M'inscrire</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

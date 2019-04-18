@@ -1,0 +1,101 @@
+$white: #fff;
+$dark: #1F1F21;
+
+.background {
+  padding-top: 150px
+}
+
+.form-horizontal {
+  display: none;
+}
+
+.login-container {
+  position: relative;
+  width: 840px;
+  height: 300px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, .7);
+  color: $white;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+}
+.col-left, .col-right {
+  width: 400px;
+  padding: 10px;
+  float: left;
+}
+.btn {
+  border-radius: 0;
+}
+.btn-outline {
+  background: transparent;
+  color: $white;
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background, color .3s ease-out;
+  &:hover {
+    background: $white;
+    color: $dark;
+  }
+}
+.background-float {
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: 20px;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: $white;
+  color: $dark;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, .5);
+  transition: left 1s cubic-bezier(0.68, -0.26, 0.21, 1.21);
+  z-index: 1;
+  form {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0.4, 0, 1, 1);
+    &.register-form {
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+    .form-control {
+      border-radius: 0;
+    }
+  }
+}
+[name="choose-login"] {
+  &:checked {
+    position: relative;
+    color: $dark;
+    border-color: $dark;
+    z-index: 1;
+    + .background-float {
+      position: absolute;
+      left: 420px;
+      .register-form {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .login-form {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
