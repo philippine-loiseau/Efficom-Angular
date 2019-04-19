@@ -4,7 +4,7 @@ import { AccountFormComponent } from './account-form/account-form.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
-    { path: 'signup', component: AccountFormComponent, canActivate: [AuthGuard] },
+    { path: 'signup', component: AccountFormComponent},
     { path: '', pathMatch: 'full', redirectTo: 'signup' },
 ]
 

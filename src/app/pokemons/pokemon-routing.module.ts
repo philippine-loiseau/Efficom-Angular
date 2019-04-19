@@ -6,7 +6,7 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
 
 const routes: Routes = [
-    { path: 'pokedex', component: PokedexComponent, canActivate: [AuthGuard] },
+    { path: 'pokedex', component: PokedexComponent, canActivate: [AuthGuard]},
     { path: 'pokemons', component: PokemonListComponent },
     { path: 'pokemon-details/:id', component: PokemonDetailsComponent },
 
