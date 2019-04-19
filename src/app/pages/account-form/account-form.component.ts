@@ -82,7 +82,7 @@ export class AccountFormComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/pokedex']);
+          this.router.navigate(['/team']);
         },
         error => {
           this.loading = false;

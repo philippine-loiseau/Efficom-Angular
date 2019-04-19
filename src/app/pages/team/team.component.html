@@ -1,0 +1,30 @@
+<mat-toolbar class="toolbar" color="primary">
+  <mat-toolbar-row>
+    <span [routerLink]="['/pokedex']" routerLinkActive="router-link-active">Retour au Pokedex</span>
+    <div class="offset-4">
+      <span>MES POKEMONS</span>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="container">
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let pokemon of pokemons">
+      <ng-template carouselSlide>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{pokemon.name}}</mat-card-title>
+            <mat-card-subtitle>N° {{pokemon.id}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="../../../assets/img/sprites/{{pokemon.id}}.png" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              {{pokemon.description}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
+</div>

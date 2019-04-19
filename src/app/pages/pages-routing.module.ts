@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountFormComponent } from './account-form/account-form.component';
 import { AuthGuard } from '../shared/guards/auth.guard';
+import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
     { path: 'signup', component: AccountFormComponent},
-    { path: '', pathMatch: 'full', redirectTo: 'signup' },
+    { path: 'team', component: TeamComponent, canActivate: [AuthGuard]}
+
 ]
 
 @NgModule({

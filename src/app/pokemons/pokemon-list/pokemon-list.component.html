@@ -1,10 +1,17 @@
-<h2>POKEDEX</h2>
+<div class="center">
+  <h2>POKEDEX</h2>
+</div>
 
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input (keyup)="searchTerm$.next($event.target.value)" matInput placeholder="Rechercher un pokemon" value="">
   </mat-form-field>
 </form>
+
+
+<div class="center">
+  <button mat-raised-button color="primary" [routerLink]="['/team']" >Accéder à ma team</button>
+</div>
 
 <div *ngIf="results">
   <mat-nav-list class="result-scroll" infinite-scroll [infiniteScrollDistance]="scrollDistance"

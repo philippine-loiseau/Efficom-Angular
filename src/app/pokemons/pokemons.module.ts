@@ -12,8 +12,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatIconModule, MatInputModule,
   MatAutocompleteModule, MatChipsModule,
-  MatFormFieldModule
+  MatFormFieldModule, MatButtonModule
 } from '@angular/material';
+
 
 
 @NgModule({
@@ -31,11 +32,11 @@ import {
     MatInputModule,
     MatAutocompleteModule,
     MatChipsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   exports: [
-    PokemonListComponent,
-    MatListModule
+    PokemonListComponent
   ]
 })
 export class PokemonsModule { }
